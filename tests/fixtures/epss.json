@@ -1,0 +1,6 @@
+{"data": [
+ {"cve": "CVE-2000-0001", "epss": "0.97", "percentile": "0.99"},
+ {"cve": "CVE-2000-0002", "epss": "0.40", "percentile": "0.95"},
+ {"cve": "CVE-2000-0003", "epss": "0.002", "percentile": "0.30"},
+ {"cve": "CVE-2000-0004", "epss": "0.35", "percentile": "0.94"}
+]}

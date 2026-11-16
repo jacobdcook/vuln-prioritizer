@@ -1,0 +1,4 @@
+{"vulnerabilities": [
+ {"cveID": "CVE-2000-0001", "dateAdded": "2024-01-02", "knownRansomwareCampaignUse": "Known"},
+ {"cveID": "CVE-2000-0002", "dateAdded": "2024-03-04", "knownRansomwareCampaignUse": "Unknown"}
+]}

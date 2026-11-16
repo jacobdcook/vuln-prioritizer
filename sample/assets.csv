@@ -1,0 +1,7 @@
+asset_id,hostname,criticality,internet_facing
+A1,vpn-gw-01,5,yes
+A2,web-portal-01,4,yes
+A3,hr-db-01,5,no
+A4,print-srv-02,2,no
+A5,dev-test-07,1,no
+A6,monitor-01,4,no

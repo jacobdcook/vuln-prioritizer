@@ -1,0 +1,4 @@
+asset_id,hostname,criticality,internet_facing
+X1,edge-01,3,yes
+X2,lab-01,1,no
+X3,core-db,5,no
