@@ -1,5 +1,7 @@
 # vuln-prioritizer
 
+[![tests](https://github.com/jacobdcook/vuln-prioritizer/actions/workflows/tests.yml/badge.svg)](https://github.com/jacobdcook/vuln-prioritizer/actions/workflows/tests.yml)
+
 Ranks vulnerability scan findings by real-world risk instead of CVSS alone.
 
 CVSS tells you how bad a bug *could* be. It does not tell you whether anyone is
@@ -51,9 +53,9 @@ database server.
 
 ```
  1. [Fix now] CVE-2024-3400 on vpn-gw-01 (A1)
-    why: on CISA KEV since 2024-04-12 (exploited in the wild); used in ransomware campaigns; EPSS 100.0% chance of exploitation in 30 days; CVSS 10.0; internet-facing; asset criticality 5/5
+    why: on CISA KEV since 2024-04-12 (exploited in the wild); used in ransomware campaigns; EPSS >99.9% chance of exploitation in 30 days; CVSS 10.0; internet-facing; asset criticality 5/5
  2. [Fix now] CVE-2021-44228 on web-portal-01 (A2)
-    why: on CISA KEV since 2021-12-10 (exploited in the wild); used in ransomware campaigns; EPSS 100.0% chance of exploitation in 30 days; CVSS 10.0; internet-facing; asset criticality 4/5
+    why: on CISA KEV since 2021-12-10 (exploited in the wild); used in ransomware campaigns; EPSS >99.9% chance of exploitation in 30 days; CVSS 10.0; internet-facing; asset criticality 4/5
  3. [Fix this week] CVE-2021-34527 on print-srv-02 (A4)
     why: on CISA KEV since 2021-11-03 (exploited in the wild); used in ransomware campaigns; EPSS 99.8% chance of exploitation in 30 days; CVSS 8.8; asset criticality 2/5
  4. [Fix this week] CVE-2024-6387 on hr-db-01 (A3)

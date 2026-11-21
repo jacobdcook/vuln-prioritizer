@@ -20,6 +20,11 @@ EPSS_HIGH = 0.10  # 10%+ chance of exploitation in 30 days; a common FIRST-sugge
 TIERS = ["Fix now", "Fix this week", "Fix this cycle", "Track"]
 
 
+def pct(e):
+    # rounding must not show a 0.99999 EPSS as 100.0% (certain) or 0.0004 as 0.0% (impossible)
+    return ">99.9%" if e >= 0.9995 else "<0.1%" if 0 < e < 0.0005 else f"{e:.1%}"
+
+
 def fetch_json(url):
     with urllib.request.urlopen(urllib.request.Request(url, headers=HEADERS), timeout=30) as r:
         return json.load(r)
@@ -94,7 +99,7 @@ def rank(findings, assets, kev, epss):
             why.append(f"on CISA KEV since {k['dateAdded']} (exploited in the wild)")
             if k.get("knownRansomwareCampaignUse") == "Known":
                 why.append("used in ransomware campaigns")
-        why.append(f"EPSS {e:.1%} chance of exploitation in 30 days" if scored is not None else "no EPSS score yet")
+        why.append(f"EPSS {pct(e)} chance of exploitation in 30 days" if scored is not None else "no EPSS score yet")
         why.append(f"CVSS {cvss}")
         if exposed:
             why.append("internet-facing")

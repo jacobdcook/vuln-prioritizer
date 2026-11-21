@@ -44,6 +44,14 @@ class RankTest(unittest.TestCase):
         r = next(r for r in run() if r["cve"] == "CVE-2000-0099")
         self.assertIn("no EPSS score", r["why"])
 
+    def test_epss_rounding_never_shows_certainty_or_zero(self):
+        self.assertEqual(p.pct(0.99999), ">99.9%")
+        self.assertEqual(p.pct(0.9979), "99.8%")
+        self.assertEqual(p.pct(0.00395), "0.4%")
+        self.assertEqual(p.pct(0.0004), "<0.1%")
+        r = p.rank([{"asset_id": "X1", "cve": "CVE-2000-0005", "cvss": 9.0}], {}, {}, {"CVE-2000-0005": 0.99999})[0]
+        self.assertIn("EPSS >99.9% chance", r["why"])
+
 
 if __name__ == "__main__":
     unittest.main()
